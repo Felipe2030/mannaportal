@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db_mannaportal
     ports:
-      - "3306:3306"
+      - "3307:3306"
   web:
     build: .
     restart: always
