@@ -4,7 +4,7 @@ const fs = require("fs")
 module.exports = class MysqlConnection {
     async connection(){
         return await mysql.createConnection({
-            host: "localhost",
+            host: "db",
             user: "root",
             password: "root",
             database: "db_mannaportal",

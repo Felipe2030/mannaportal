@@ -22,6 +22,4 @@ EXPOSE 80
 
 CMD ["/start.sh"]
 
-#docker rm -f v1
-#docker build -t nginx-nodejs -f Dockerfile .
-#docker run --name v1 -p  80:80 -d -e PORT=4000 nginx-nodejs
+#docker exec 737d15443c9f node ./backend/src/utils/database/mysql-migrations.js
