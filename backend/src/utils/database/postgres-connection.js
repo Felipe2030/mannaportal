@@ -1,15 +1,14 @@
-const mariadb = require("mariadb/promise")
+const { Pool } = require("pg")
 const fs = require("fs")
 
-module.exports = class MariadbConnection {
+module.exports = class PostgresConnection {
     async connection(){
-        const host = process.env.HOST || "localhost";
-        return await mariadb.createConnection({
-            host: host, 
-            port: 3306,
-            user: "root", 
-            password: "Password123!"
-        });
+        return new Pool({
+            host: process.env.HOST || "localhost",
+            user: "postgres",
+            password: "postgres",
+            database: "postgres"
+        })
     }
 
     async migrations(){

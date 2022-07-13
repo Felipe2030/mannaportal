@@ -3,7 +3,7 @@ const express = require("express")
 const http = require("http")
 
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 8000
 const server = http.Server(app)
 
 app.use(express.json())

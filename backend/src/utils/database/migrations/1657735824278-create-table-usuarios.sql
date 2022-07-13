@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS mannaportal_db.usuarios (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS usuarios (
+	id SERIAL PRIMARY KEY NOT NULL,
 	perfil_id INT NOT NULL,
 	nm_imagem VARCHAR(100) NOT NULL,
 	statususuario_id INT NOT NULL DEFAULT 1,

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "migrations:create": "node ./src/utils/database/mariadb-create-migrations",
-    "migrations:init": "node ./src/utils/database/mariadb-migrations"
+    "migrations:create": "node ./src/utils/database/postgres-create-migrations",
+    "migrations:init": "node ./src/utils/database/postgres-migrations"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,8 @@
   "dependencies": {
     "express": "^4.18.1",
     "mariadb": "^3.0.0",
-    "nodemailer": "^6.7.7"
+    "nodemailer": "^6.7.7",
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

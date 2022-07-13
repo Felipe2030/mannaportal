@@ -1,6 +1,6 @@
-const MariadbConnection = require("./../utils/database/mariadb-connection")
+const PostgresConnection = require("./../utils/database/postgres-connection")
 
-module.exports = class AuthActions extends MariadbConnection {
+module.exports = class AuthActions extends PostgresConnection {
     async authAction(){
        return "ok";
     }
