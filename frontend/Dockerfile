@@ -1,4 +1,4 @@
-FROM node:latest AS builder
+FROM node:14 AS builder
 WORKDIR /app
 
 COPY package*.json ./
@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . .
 
-RUN sudo npm run build
+RUN npm run build
 
 FROM nginx:alpine
 
