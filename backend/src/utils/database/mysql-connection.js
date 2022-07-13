@@ -1,15 +1,15 @@
-const mysql = require("mysql2/promise")
+const mariadb = require("mariadb")
 const fs = require("fs")
 
-module.exports = class MysqlConnection {
+module.exports = class MariadbConnection {
     async connection(){
-        return await mysql.createConnection({
-            host: "db",
-            user: "root",
-            password: "root",
-            database: "db_mannaportal",
-            port: "3307"
-        })
+        const pool = mariadb.createPool({
+            host: "localhost", 
+            port: 3306,
+            user: "root", 
+            password: "Password123!"
+        });
+        return await pool.getConnection();
     }
 
     async migrations(){
