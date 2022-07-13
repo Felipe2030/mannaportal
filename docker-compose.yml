@@ -1,17 +1,36 @@
-version: "3.9" 
+version: '3.9'
 services:
-  db:
-    image: mysql
-    restart: always
+  mariadb:
+    container_name: mdb
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_mannaportal
-    ports:
-      - "3307:3306"
-  web:
-    build: .
+      - MARIADB_ROOT_PASSWORD=Password123!
+      
+  phpmyadmin:
+    image: phpmyadmin
     restart: always
-    depends_on:
-      - db
     ports:
-      - "80:80"
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+
+  node_express:
+    container_name: backend
+    build: ./backend
+    environment:
+      - HOST=mariadb
+      - PORT=3000
+    ports:
+      - 3000:3000
+    depends_on:
+      - mariadb
+
+  node_react:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 80:80
+    depends_on:
+      - node_express

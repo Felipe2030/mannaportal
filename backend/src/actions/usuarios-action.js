@@ -1,9 +1,9 @@
-const MysqlConnection = require("./../utils/database/mysql-connection")
+const MariadbConnection = require("./../utils/database/mariadb-connection")
 
-module.exports = class UsuariosActions extends MysqlConnection {
+module.exports = class UsuariosActions extends MariadbConnection {
     async usuariosAction(){
         const db = await this.connection()
-        const [rows] = await db.execute("SELECT * FROM usuarios;")
-        return rows
+        const usuarios = await db.query("SELECT * FROM db_teste.usuarios;")
+        return usuarios;
     }
 }

@@ -2,9 +2,9 @@ const express = require("express")
 const router = express.Router()
 const AuthController = require("./../controllers/auth-controller")
 
-router.get("/auth", (req, res) => {
+router.get("/auth", async (req, res) => {
     const auth = new AuthController();
-    auth.authController();
+    await auth.authController();
     res.send("ok")
 })
 
